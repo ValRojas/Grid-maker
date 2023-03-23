@@ -7,13 +7,9 @@ import javax.swing.*;
 
 public class ImportImage {
     private final File selectedFile; //File = represents a file or directory path name
-    private final JLabel imageLabel;
 
-    public ImportImage(File selectedFile, JLabel imageLabel) { //receives imported image and label where it will be displayed
+    public ImportImage(File selectedFile) { //receives imported image and label where it will be displayed
         this.selectedFile = selectedFile;
-        this.imageLabel = imageLabel;
-        this.imageLabel.setVerticalAlignment(JLabel.CENTER);
-        this.imageLabel.setHorizontalAlignment(JLabel.CENTER);
     }
 
     public BufferedImage importImage() {

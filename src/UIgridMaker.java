@@ -8,16 +8,17 @@ public class UIgridMaker extends JFrame{
     private JPanel background;
     private JButton ImportButton;
     private JLabel imageLabel;
-    private JTextField RowsValue;
-    private JTextField ColValue;
-    private int rows;
-    private int cols;
+    private JTextField RowsValue, ColValue;
+    private int rows, cols;
     private JButton gridITButton;
 
     public UIgridMaker(){
         super("Grid app"); //title
         setContentPane(background);//set content panel
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // exit app when close
+
+        this.imageLabel.setVerticalAlignment(JLabel.CENTER);
+        this.imageLabel.setHorizontalAlignment(JLabel.CENTER);
 
         // UPDATE recommendation > lambda
         ImportButton.addActionListener(e -> {
@@ -36,7 +37,7 @@ public class UIgridMaker extends JFrame{
                 File selectedFile = chooser.getSelectedFile();
                 // Pass the selected file to the ImageImporter class
 
-                ImportImage importer = new ImportImage(selectedFile, imageLabel);
+                ImportImage importer = new ImportImage(selectedFile);
                 BufferedImage image = importer.importImage(); //sets
 
                 //note: inside DocumentListener

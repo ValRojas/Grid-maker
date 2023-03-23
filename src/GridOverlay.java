@@ -5,8 +5,7 @@ import java.awt.image.BufferedImage;
 
 public class GridOverlay extends JPanel {
     private final BufferedImage image;
-    private final int rows;
-    private final int cols;
+    private final int rows, cols;
 
     public GridOverlay(BufferedImage image, int rows, int cols) {
         this.image = image;

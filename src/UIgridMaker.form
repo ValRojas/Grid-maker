@@ -28,7 +28,7 @@
       <component id="917d0" class="javax.swing.JTextField" binding="RowsValue">
         <constraints/>
         <properties>
-          <preferredSize width="50" height="30"/>
+          <preferredSize width="70" height="30"/>
           <text value=""/>
         </properties>
       </component>
@@ -43,7 +43,7 @@
       <component id="bd3c6" class="javax.swing.JTextField" binding="ColValue">
         <constraints/>
         <properties>
-          <preferredSize width="50" height="30"/>
+          <preferredSize width="70" height="30"/>
         </properties>
       </component>
       <component id="5dfe" class="javax.swing.JButton" binding="gridITButton" default-binding="true">

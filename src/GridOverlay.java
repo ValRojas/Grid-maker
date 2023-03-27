@@ -6,7 +6,6 @@ import java.awt.image.BufferedImage;
 public class GridOverlay extends JPanel {
     private final BufferedImage image;
     private final int rows, cols;
-
     public GridOverlay(BufferedImage image, int rows, int cols) {
         this.image = image;
         this.rows = rows;
@@ -22,16 +21,15 @@ public class GridOverlay extends JPanel {
         Graphics2D g = overlay.createGraphics();
         g.drawImage(image, 0, 0, null);
 
-
         g.setColor(Color.WHITE);
 
-        // Draw horizontal lines
+        // Draw horizontal
         for (int i = 1; i < rows; i++) {
             int y = i * cellHeight;
             g.drawLine(0, y, width, y);
         }
 
-        // Draw vertical lines
+        // Draw vertical
         for (int j = 1; j < cols; j++) {
             int x = j * cellWidth;
             g.drawLine(x, 0, x, height);

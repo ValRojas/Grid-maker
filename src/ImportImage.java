@@ -7,7 +7,6 @@ import javax.swing.*;
 
 public class ImportImage {
     private final File selectedFile; //File = represents a file or directory path name
-
     public ImportImage(File selectedFile) { //receives imported image and label where it will be displayed
         this.selectedFile = selectedFile;
     }

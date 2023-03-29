@@ -18,7 +18,7 @@ public class ImportImage {
             int maxWidth = 400;
             int newHeight = (int) (((double) originalHeight / originalWidth) * maxWidth);
 
-            // Resize
+            // Resize image to fit window
             BufferedImage resizedImage = new BufferedImage(maxWidth, newHeight, BufferedImage.TYPE_INT_RGB);
             Graphics2D graphics = resizedImage.createGraphics();
             graphics.drawImage(image, 0, 0, maxWidth, newHeight, null);

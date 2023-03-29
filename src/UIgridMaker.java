@@ -36,11 +36,11 @@ public class UIgridMaker extends JFrame{
             if (result == JFileChooser.APPROVE_OPTION) { //user has selected an image
 
                 File selectedFile = chooser.getSelectedFile();
-                ImportImage importer = new ImportImage(selectedFile);
+                ImportImage importer = new ImportImage(selectedFile); //resize
                 image = importer.importImage();
                 imageAspectRatio = (float) image.getWidth() / image.getHeight();
 
-                GridOverlay overlay = new GridOverlay(image, 5,Math.round(imageAspectRatio * 5));
+                GridOverlay overlay = new GridOverlay(image, 5,Math.round(imageAspectRatio * 5)); //put overlay on it (default)
                 BufferedImage overlayImage = overlay.createOverlay();
 
                 ImageIcon icon = new ImageIcon(overlayImage);
@@ -60,13 +60,14 @@ public class UIgridMaker extends JFrame{
                 File fileToSave = fileChooser.getSelectedFile();
                 String fileName = fileToSave.getName();
 
-                if (!fileName.endsWith(".jpg")) {
+                if (!fileName.endsWith(".jpg")) { //sets extension
                     fileToSave = new File(fileToSave.getParentFile(), fileName + ".jpg");
                 }
 
                 ImageIcon icon = (ImageIcon) imageLabel.getIcon();
                 Image image = icon.getImage();
 
+                // Resize image to delete black margins (delete test())
                 BufferedImage bufferedImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_RGB);
                 Graphics2D graphics2D = bufferedImage.createGraphics();
                 graphics2D.drawImage(image, 0, 0, null);
@@ -81,7 +82,6 @@ public class UIgridMaker extends JFrame{
                 }
             }
         });
-
 
         /* S: Handle grid overlay maker*/
         RowsValue.getDocument().addDocumentListener(new DocumentListener() {
@@ -135,74 +135,11 @@ public class UIgridMaker extends JFrame{
 
     /* S: Return show image*/
     private void updateOverlay(int rows, int cols) {
-        GridOverlay overlay = new GridOverlay(image, rows, cols);
+        GridOverlay overlay = new GridOverlay(image, rows, cols); //user sets rows-cols
         BufferedImage overlayImage = overlay.createOverlay();
         ImageIcon icon = new ImageIcon(overlayImage);
         imageLabel.setIcon(icon);
     }
     /* E: Return*/
 
-    private BufferedImage test(){
-        // Crop the image to remove black margins
-        int x = 0;
-        int y = 0;
-        int width = image.getWidth();
-        int height = image.getHeight();
-        int[] pixels = image.getRGB(0, 0, image.getWidth(), image.getHeight(), null, 0, image.getWidth());
-        int black = Color.BLACK.getRGB();
-        boolean done = false;
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
-                if (pixels[j * width + i] != black) {
-                    x = i;
-                    done = true;
-                    break;
-                }
-            }
-            if (done) {
-                break;
-            }
-        }
-        done = false;
-        for (int i = width - 1; i >= 0; i--) {
-            for (int j = 0; j < height; j++) {
-                if (pixels[j * width + i] != black) {
-                    width = i - x + 1;
-                    done = true;
-                    break;
-                }
-            }
-            if (done) {
-                break;
-            }
-        }
-        done = false;
-        for (int j = 0; j < height; j++) {
-            for (int i = 0; i < width; i++) {
-                if (pixels[j * width + i + x] != black) {
-                    y = j;
-                    done = true;
-                    break;
-                }
-            }
-            if (done) {
-                break;
-            }
-        }
-        done = false;
-        for (int j = height - 1; j >= 0; j--) {
-            for (int i = 0; i < width; i++) {
-                if (pixels[j * width + i + x] != black) {
-                    height = j - y + 1;
-                    done = true;
-                    break;
-                }
-            }
-            if (done) {
-                break;
-            }
-        }
-        image = image.getSubimage(x, y, width, height);
-        return image;
-    }
 }

@@ -5,7 +5,7 @@
       <xy x="20" y="20" width="568" height="584"/>
     </constraints>
     <properties>
-      <background color="-4265798"/>
+      <background color="-14013910"/>
       <preferredSize width="1000" height="550"/>
     </properties>
     <border type="none"/>
@@ -13,14 +13,14 @@
       <component id="ff1d" class="javax.swing.JButton" binding="ImportButton">
         <constraints/>
         <properties>
-          <foreground color="-13238379"/>
+          <foreground color="-63810"/>
           <text value="Import"/>
         </properties>
       </component>
       <component id="89760" class="javax.swing.JLabel">
         <constraints/>
         <properties>
-          <foreground color="-16777216"/>
+          <foreground color="-1"/>
           <preferredSize width="35" height="16"/>
           <text value="Rows"/>
         </properties>
@@ -35,7 +35,7 @@
       <component id="9e7e9" class="javax.swing.JLabel">
         <constraints/>
         <properties>
-          <foreground color="-16777216"/>
+          <foreground color="-1"/>
           <opaque value="false"/>
           <text value="Columns"/>
         </properties>
@@ -50,13 +50,14 @@
         <constraints/>
         <properties>
           <background color="-1"/>
-          <foreground color="-13238379"/>
+          <foreground color="-63810"/>
           <text value="Grid IT!"/>
         </properties>
       </component>
       <component id="e78a9" class="javax.swing.JLabel" binding="imageLabel">
         <constraints/>
         <properties>
+          <background color="-13238379"/>
           <preferredSize width="500" height="500"/>
           <requestFocusEnabled value="false"/>
           <text value=""/>

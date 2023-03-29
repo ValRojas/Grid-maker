@@ -3,7 +3,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-public class GridOverlay extends JPanel {
+public class GridOverlay{
     private final BufferedImage image;
     private final int rows, cols;
     public GridOverlay(BufferedImage image, int rows, int cols) {
